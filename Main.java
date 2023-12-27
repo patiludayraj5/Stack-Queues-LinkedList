@@ -14,6 +14,15 @@ class Queue {
         list.addLast(value);
     }
 
+    // Dequeue operation to remove and return the front element from the queue
+    public int dequeue() {
+        if (isEmpty()) {
+            throw new IllegalStateException("Queue is empty");
+        }
+        // Removing and returning the first element of the linked list
+        return list.removeFirst();
+    }
+
     // Check if the queue is empty
     public boolean isEmpty() {
         return list.isEmpty();
@@ -41,5 +50,11 @@ public class Main {
 
         // Display the queue
         queue.display();
+
+        // Dequeue until the queue is empty
+        while (!queue.isEmpty()) {
+            System.out.println("Dequeue: " + queue.dequeue());
+            queue.display();
+        }
     }
 }
