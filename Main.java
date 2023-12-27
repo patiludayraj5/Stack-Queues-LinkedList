@@ -1,45 +1,27 @@
 import java.util.LinkedList;
 
-class Stack {
+class Queue {
     private LinkedList<Integer> list;
 
     // Constructor to initialize the linked list
-    public Stack() {
+    public Queue() {
         list = new LinkedList<>();
     }
 
-    // Push operation to add an element to the stack
-    public void push(int value) {
-        // Adding elements to the front of the linked list
-        list.addFirst(value);
+    // Enqueue operation to add an element to the queue
+    public void enqueue(int value) {
+        // Adding elements to the end of the linked list
+        list.addLast(value);
     }
 
-    // Pop operation to remove and return the top element from the stack
-    public int pop() {
-        if (isEmpty()) {
-            throw new IllegalStateException("Stack is empty");
-        }
-        // Removing and returning the first element of the linked list
-        return list.removeFirst();
-    }
-
-    // Peek operation to return the top element without removing it
-    public int peek() {
-        if (isEmpty()) {
-            throw new IllegalStateException("Stack is empty");
-        }
-        // Returning the first element of the linked list without removing it
-        return list.getFirst();
-    }
-
-    // Check if the stack is empty
+    // Check if the queue is empty
     public boolean isEmpty() {
         return list.isEmpty();
     }
 
-    // Display the elements of the stack
+    // Display the elements of the queue
     public void display() {
-        System.out.print("Stack: ");
+        System.out.print("Queue: ");
         for (int element : list) {
             System.out.print(element + " ");
         }
@@ -49,22 +31,15 @@ class Stack {
 
 public class Main {
     public static void main(String[] args) {
-        // Create a stack
-        Stack stack = new Stack();
+        // Create a queue
+        Queue queue = new Queue();
 
-        // Push elements onto the stack
-        stack.push(70);
-        stack.push(30);
-        stack.push(56);
+        // Enqueue elements into the queue
+        queue.enqueue(56);
+        queue.enqueue(30);
+        queue.enqueue(70);
 
-        // Display the stack
-        stack.display();
-
-        // Peek and pop until the stack is empty
-        while (!stack.isEmpty()) {
-            System.out.println("Peek: " + stack.peek());
-            System.out.println("Pop: " + stack.pop());
-            stack.display();
-        }
+        // Display the queue
+        queue.display();
     }
 }
