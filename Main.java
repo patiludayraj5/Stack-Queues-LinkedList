@@ -14,6 +14,29 @@ class Stack {
         list.addFirst(value);
     }
 
+    // Pop operation to remove and return the top element from the stack
+    public int pop() {
+        if (isEmpty()) {
+            throw new IllegalStateException("Stack is empty");
+        }
+        // Removing and returning the first element of the linked list
+        return list.removeFirst();
+    }
+
+    // Peek operation to return the top element without removing it
+    public int peek() {
+        if (isEmpty()) {
+            throw new IllegalStateException("Stack is empty");
+        }
+        // Returning the first element of the linked list without removing it
+        return list.getFirst();
+    }
+
+    // Check if the stack is empty
+    public boolean isEmpty() {
+        return list.isEmpty();
+    }
+
     // Display the elements of the stack
     public void display() {
         System.out.print("Stack: ");
@@ -36,5 +59,12 @@ public class Main {
 
         // Display the stack
         stack.display();
+
+        // Peek and pop until the stack is empty
+        while (!stack.isEmpty()) {
+            System.out.println("Peek: " + stack.peek());
+            System.out.println("Pop: " + stack.pop());
+            stack.display();
+        }
     }
 }
